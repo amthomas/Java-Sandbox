@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 public class Poly extends Frame
   {
+  private static final long serialVersionUID = 1234L;
 
   //-----------------------------------------------------------------
   //  Initializes the input variables globally.
@@ -68,11 +69,13 @@ public class Poly extends Frame
        {public void windowClosing (WindowEvent e) {System.exit(0);}});
     setSize (725, 725);
     add (new CvSquare ());
-    show ();
+    setVisible(true);
     }// end of main
 
-  class CvSquare extends Canvas 
+  private class CvSquare extends Canvas 
     {
+
+    private static final long serialVersionUID = 123L;
   
     //---------------------------------------------------------------
     //  Code that prints the spiral to the screen according to the
