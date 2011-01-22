@@ -1,8 +1,10 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Poly extends JPanel
+public class Poly extends Frame
   {
 
   //-----------------------------------------------------------------
@@ -27,7 +29,7 @@ public class Poly extends JPanel
     while (cont)
       {
 
-/*      System.out.print ("Enter the value of the initial distance in pixels: ");
+      System.out.print ("Enter the value of the initial distance in pixels: ");
       dist = Integer.parseInt (stdin.readLine());
       
       System.out.print ("Enter the value of the angle in degrees: ");
@@ -38,8 +40,8 @@ public class Poly extends JPanel
 
       System.out.print ("Enter the number of segments to draw: ");
       N = Integer.parseInt (stdin.readLine());
-*/
-      new JPanel ();
+
+      new Poly();
 
       System.out.println ();
       System.out.println ("To terminate the program close the Polyspiral" +
@@ -58,7 +60,7 @@ public class Poly extends JPanel
   //  calls the class that creates the Polyspiral.
   //-----------------------------------------------------------------
 
-/* Poly ()
+ Poly ()
     {
 
     super ("Polyspiral");
@@ -110,6 +112,6 @@ public class Poly extends JPanel
       }//end of paint
 
     }//end of CvSquare
-    */
+    
 
   }//end of poly 
