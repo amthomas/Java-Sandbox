@@ -24,23 +24,24 @@ public class Poly extends Frame
 
     InputStreamReader isr = new InputStreamReader (System.in);
     BufferedReader stdin = new BufferedReader (isr);
+    PolyObj poly = new PolyObj();
         
     while (cont)
       {
 
       System.out.print ("Enter the value of the initial distance in pixels: ");
-      dist = Integer.parseInt (stdin.readLine());
+      poly.setInitDist(Integer.parseInt (stdin.readLine()));
       
       System.out.print ("Enter the value of the angle in degrees: ");
-      ang = Double.parseDouble (stdin.readLine());
+      poly.setAngle(Double.parseDouble (stdin.readLine()));
 
       System.out.print ("Enter the increment value for the distance: ");
-      incr = Integer.parseInt (stdin.readLine());
+      poly.setIncrFromInitDist(Integer.parseInt (stdin.readLine()));
 
       System.out.print ("Enter the number of segments to draw: ");
-      N = Integer.parseInt (stdin.readLine());
+      poly.setNumSegments(Integer.parseInt (stdin.readLine()));
 
-      new Poly();
+      new Poly(poly);
 
       System.out.println ();
       System.out.println ("To terminate the program close the Polyspiral" +
@@ -59,7 +60,7 @@ public class Poly extends Frame
   //  calls the class that creates the Polyspiral.
   //-----------------------------------------------------------------
 
- Poly ()
+ Poly (PolyObj poly)
     {
 
     super ("Polyspiral");
@@ -69,7 +70,5 @@ public class Poly extends Frame
     add (new CvSquare ());
     setVisible(true);
     }// end of main
-
-    
 
   }//end of poly 
