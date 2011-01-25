@@ -1,12 +1,10 @@
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Poly //extends Frame
+public class Poly
 {
-   private static final long serialVersionUID = 1234L;
 
    //-----------------------------------------------------------------
    //  Start of main body of the program.  Includes inputing the data
@@ -36,28 +34,12 @@ public class Poly //extends Frame
          foo.setVisible(true);
 
          if (Integer.parseInt (stdin.readLine()) == 0)
+         {
+            foo.dispose();
             cont = false;
-         
-         stdin.close();
+         }
       }//end of while
+    stdin.close();
 
     }//end of main
-
-  //-----------------------------------------------------------------
-  //  Class that creates the window to display the Polyspiral and
-  //  calls the class that creates the Polyspiral.
-  //-----------------------------------------------------------------
-/*
- Poly (PolyObj poly)
-    {
-
-    super ("Polyspiral");
-    addWindowListener (new WindowAdapter ()
-       {public void windowClosing (WindowEvent e) {System.exit(0);}});
-    setSize (725, 725);
-    add (new CvSquare ());
-    setVisible(true);
-    }// end of main
-
-  */
   }//end of poly 
