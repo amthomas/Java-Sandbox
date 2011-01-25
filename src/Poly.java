@@ -32,7 +32,7 @@ public class Poly //extends Frame
          foo.addWindowListener (new WindowAdapter ()
             {public void windowClosing (WindowEvent e) {System.exit(0);}});
          foo.setSize (725, 725);
-         //add (new CvSquare ());
+         foo.add (new PolyCanvas (poly));
          foo.setVisible(true);
 
          if (Integer.parseInt (stdin.readLine()) == 0)

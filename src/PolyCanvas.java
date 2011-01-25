@@ -25,16 +25,16 @@ public class PolyCanvas extends Canvas
       initY = (d.height - 1) / 2.0,
       finX = 0.0,
       finY = 0.0,
-      newang = ang;
-      int dist1 = dist;
+      newang = poly.getAngle();
+      int dist1 = poly.getInitDist();
 
-      for (int i = 0; i < N; i++)
+      for (int i = 0; i < poly.getNumSegments(); i++)
       {
          finX = ((Math.cos ((newang * Math.PI) / 180)) * dist1) + initX;
          finY = ((Math.sin ((newang * Math.PI) / 180)) * dist1) + initY;
     
-         dist1 = dist1 + incr;
-         newang = ang + newang;
+         dist1 = dist1 + poly.getIncrFromInitDist();
+         newang = poly.getAngle() + newang;
 
          if (newang > 360.0)
          newang = newang - 360.0;
