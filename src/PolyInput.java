@@ -8,13 +8,13 @@ public class PolyInput
       PolyObj poly = new PolyObj();
         
       System.out.print ("Enter the value of the initial distance in pixels: ");
-      poly.setInitDist(Integer.parseInt (stdin.readLine()));
+      poly.setDistance(Integer.parseInt (stdin.readLine()));
       
       System.out.print ("Enter the value of the angle in degrees: ");
       poly.setAngle(Double.parseDouble (stdin.readLine()));
 
       System.out.print ("Enter the increment value for the distance: ");
-      poly.setIncrFromInitDist(Integer.parseInt (stdin.readLine()));
+      poly.setDistanceIncrement(Integer.parseInt (stdin.readLine()));
 
       System.out.print ("Enter the number of segments to draw: ");
       poly.setNumSegments(Integer.parseInt (stdin.readLine()));

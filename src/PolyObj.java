@@ -1,23 +1,85 @@
 public class PolyObj
 {
-   private int initDist;
-   private int incrFromInitDist;
+   private int distance;
+   private int distanceIncrement;
    private int numSegments;
+   private int x;
+   private int y;
    private double angle;  
 
    public PolyObj()
    {
-      this.initDist = 0;
+      this.distance = 0;
       this.angle = 0.0;
-      this.incrFromInitDist = 0;
+      this.distanceIncrement = 0;
       this.numSegments = 0;
    }
-   public PolyObj(int initDist, double angle, int incrFromInitDist, int numSegments)
+   public PolyObj(int distance, double angle, int distanceIncrement, int numSegments)
    {
-      this.initDist = initDist;
+      this.distance = distance;
       this.angle = angle;
-      this.incrFromInitDist = incrFromInitDist;
+      this.distanceIncrement = distanceIncrement;
       this.numSegments = numSegments;
+   }
+   
+   /**
+    * Get distance.
+    *
+    * @return distance as int.
+    */
+   public int getDistance()
+   {
+       return distance;
+   }
+   
+   /**
+    * Set distance.
+    *
+    * @param distance the value to set.
+    */
+   public void setDistance(int distance)
+   {
+       this.distance = distance;
+   }
+   
+   /**
+    * Get distanceIncrement.
+    *
+    * @return distanceIncrement as int.
+    */
+   public int getDistanceIncrement()
+   {
+       return distanceIncrement;
+   }
+   
+   /**
+    * Set distanceIncrement.
+    *
+    * @param distanceIncrement the value to set.
+    */
+   public void setDistanceIncrement(int distanceIncrement)
+   {
+       this.distanceIncrement = distanceIncrement;
+   }
+   
+   /**
+    * Get numSegments.
+    *
+    * @return numSegments as int.
+    */
+   public int getNumSegments()
+   {
+       return numSegments;
+   }
+   
+   /**
+    * Set numSegments.
+    *
+    * @param numSegments the value to set.
+    */
+   public void setNumSegments(int numSegments)
+   {
+       this.numSegments = numSegments;
    }
    
    /**
@@ -41,62 +103,65 @@ public class PolyObj
    }
    
    /**
-    * Get initDist.
+    * Get x.
     *
-    * @return initDist as int.
+    * @return x as int.
     */
-   public int getInitDist()
+   public int getX()
    {
-       return initDist;
+       return x;
    }
    
    /**
-    * Set initDist.
+    * Set x.
     *
-    * @param initDist the value to set.
+    * @param x the value to set.
     */
-   public void setInitDist(int initDist)
+   public void setX(int x)
    {
-       this.initDist = initDist;
+       this.x = x;
    }
    
    /**
-    * Get incrFromInitDist.
+    * Get y.
     *
-    * @return incrFromInitDist as int.
+    * @return y as int.
     */
-   public int getIncrFromInitDist()
+   public int getY()
    {
-       return incrFromInitDist;
+       return y;
    }
    
    /**
-    * Set incrFromInitDist.
+    * Set y.
     *
-    * @param incrFromInitDist the value to set.
+    * @param y the value to set.
     */
-   public void setIncrFromInitDist(int incrFromInitDist)
+   public void setY(int y)
    {
-       this.incrFromInitDist = incrFromInitDist;
+       this.y = y;
    }
-   
-   /**
-    * Get numSegments.
-    *
-    * @return numSegments as int.
-    */
-   public int getNumSegments()
+
+   public void calculateCenter (int width, int height)
    {
-       return numSegments;
+      this.x = (int) Math.round ((width - 1) / 2.0);
+      this.y = (int) Math.round ((height - 1) / 2.0);
    }
-   
-   /**
-    * Set numSegments.
-    *
-    * @param numSegments the value to set.
-    */
-   public void setNumSegments(int numSegments)
+
+   public int getNextX (double angle)
    {
-       this.numSegments = numSegments;
+      return (int) Math.round((Math.cos ((angle * Math.PI) / 180)) * this.distance)
+                  + x;
+   }
+
+   public int getNextY (double angle)
+   {
+      return (int) Math.round((Math.sin ((angle * Math.PI) / 180)) * this.distance)
+                  + y;
+   }
+
+   public void incrementDistance ()
+   {
+      this.distance += distanceIncrement;
    }
 }

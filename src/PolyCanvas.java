@@ -15,24 +15,20 @@ public class PolyCanvas extends Canvas
    public void paint (Graphics g)
    {
       Dimension d = getSize ();
+      poly.calculateCenter(d.width, d.height);
 
       double   angle = poly.getAngle();
-      int      distance = poly.getInitDist(),
-               startX = (int) Math.round ((d.width - 1) / 2.0),
-               startY = (int) Math.round ((d.height - 1) / 2.0);
 
       for (int i = 0; i < poly.getNumSegments(); i++)
       {
-         int endX = (int) Math.round((Math.cos ((angle * Math.PI) / 180)) * distance) 
-                  + startX;
-         int endY = (int) Math.round((Math.sin ((angle * Math.PI) / 180)) * distance) 
-                  + startY;
+         int endX = poly.getNextX(angle);
+         int endY = poly.getNextY(angle);
 
-         g.drawLine (startX, startY, endX, endY);
+         g.drawLine (poly.getX(), poly.getY(), endX, endY);
     
-         startX = endX;
-         startY = endY;
-         distance = distance + poly.getIncrFromInitDist();
+         poly.setX(endX);
+         poly.setY(endY);
+         poly.incrementDistance();
          angle = poly.getAngle() + angle;
 
          if (angle > 360.0)
