@@ -12,38 +12,31 @@ public class PolyCanvas extends Canvas
       this.poly = poly;
    }
 
-   //---------------------------------------------------------------
-   //  Code that prints the spiral to the screen according to the
-   //  input variables.
-   //---------------------------------------------------------------
-
    public void paint (Graphics g)
    {
       Dimension d = getSize ();
 
-      double initX = (d.width - 1) / 2.0,
-      initY = (d.height - 1) / 2.0,
-      finX = 0.0,
-      finY = 0.0,
-      newang = poly.getAngle();
-      int dist1 = poly.getInitDist();
+      double   angle = poly.getAngle();
+      int      distance = poly.getInitDist(),
+               startX = (int) Math.round ((d.width - 1) / 2.0),
+               startY = (int) Math.round ((d.height - 1) / 2.0);
 
       for (int i = 0; i < poly.getNumSegments(); i++)
       {
-         finX = ((Math.cos ((newang * Math.PI) / 180)) * dist1) + initX;
-         finY = ((Math.sin ((newang * Math.PI) / 180)) * dist1) + initY;
+         int endX = (int) Math.round((Math.cos ((angle * Math.PI) / 180)) * distance) 
+                  + startX;
+         int endY = (int) Math.round((Math.sin ((angle * Math.PI) / 180)) * distance) 
+                  + startY;
+
+         g.drawLine (startX, startY, endX, endY);
     
-         dist1 = dist1 + poly.getIncrFromInitDist();
-         newang = poly.getAngle() + newang;
+         startX = endX;
+         startY = endY;
+         distance = distance + poly.getIncrFromInitDist();
+         angle = poly.getAngle() + angle;
 
-         if (newang > 360.0)
-         newang = newang - 360.0;
-
-         g.drawLine ((int) Math.round (initX), (int) Math.round (initY),
-         (int) Math.round (finX), (int) Math.round (finY));
-
-         initX = finX;
-         initY = finY;
+         if (angle > 360.0)
+            angle -= 360.0;
 
       }//end of for
 
