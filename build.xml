@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<project name="Java Sandbox" default="prepare" basedir=".">
+   
+   <property name="src.dir" value="src"/>
+
+   <property name="build.dir" value="build"/>
+   <property name="build.classes" value="${build.dir}/classes"/>
+
+   <target name="prepare" description="Prepares the build directory">
+      <mkdir dir="${build.dir}"/>
+      <mkdir dir="${build.classes}"/>
+   </target>
+
+   <target name="clean" description="Removes the generated files">
+      <delete dir="${build.dir}"/>
+   </target>
+</project>
