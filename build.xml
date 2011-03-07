@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="Java Sandbox" default="prepare" basedir=".">
+<project name="Java Sandbox" default="compile" basedir=".">
    
    <property name="src.dir" value="src"/>
 
@@ -14,5 +14,18 @@
 
    <target name="clean" description="Removes the generated files">
       <delete dir="${build.dir}"/>
+   </target>
+
+   <target name="compile" depends="prepare"
+         description="Creates .class files in the classes dir">
+      <javac srcdir="${src.dir}" destdir="${build.classes}"/>
+   </target>
+
+   <target name="jar" depends="compile">
+      <jar destfile="foobar.jar" basedir="${build.classes}">
+         <manifest>
+            <attribute name="Main-Class" value="Poly"/>
+         </manifest>
+      </jar>
    </target>
 </project>
