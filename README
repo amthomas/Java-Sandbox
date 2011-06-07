@@ -1,3 +1,12 @@
 I've been hacking around with Java for 10+ years. I say "hacking" because its been more like bootstrapping code together rather than establishing any kind of mastery over the development process.
 
 This Java Sandbox is my attempt to take a very simple code base and make sure I understand all of the key principles of the language and the tools involved in development.
+
+Some thoughts for expansion:
+- Adding tests
+- How can we validate the input
+- How can we expand how shapes are drawn
+- Refactoring: are classes/variables named clear enough? How can they be renamed to clarify their purpose more?
+- Right now we are limited to the Swing GUI library how can we expand it to allow the user to choose between Swing, AWT, or GWT
+- What about having the user submit the values via the gui rather than the command line
+- Can we use mouse events to adjust everything on the fly
